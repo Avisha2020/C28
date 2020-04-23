@@ -17,11 +17,12 @@ class Slingshot{
     }
 
     display(){
-        var pointA = this.sling.bodyA.position;
+        
         var pointB = this.point;
         
         
         if(this.sling.bodyA){
+            var pointA = this.sling.bodyA.position;
             strokeWeight(4);
             line(pointA.x, pointA.y, pointB.x, pointB.y);
             
