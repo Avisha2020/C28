@@ -1,20 +1,31 @@
-class Chain{
-    constructor(bodyA, bodyB){
+class Slingshot{
+    constructor(bodyA, point){
         var options = {
             bodyA: bodyA,
-            bodyB: bodyB,
+            pointB: point,
             stiffness: 0.04,
             length: 10
         }
-        this.chain = Constraint.create(options);
-        World.add(world, this.chain);
+        this.sling = Constraint.create(options);
+        World.add(world, this.sling);
+        
+        this.point = point;
+        console.log("property"+ this.sling);
+    }
+    fly(){
+        this.sling.bodyA=null;
     }
 
     display(){
-        var pointA = this.chain.bodyA.position;
-        var pointB = this.chain.bodyB.position;
-        strokeWeight(4);
-        line(pointA.x, pointA.y, pointB.x, pointB.y);
+        var pointA = this.sling.bodyA.position;
+        var pointB = this.point;
+        
+        
+        if(this.sling.bodyA){
+            strokeWeight(4);
+            line(pointA.x, pointA.y, pointB.x, pointB.y);
+            
+        }
     }
     
 }
